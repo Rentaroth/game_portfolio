@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmv7xy1vtu77i"]
+
+[ext_resource type="Script" uid="uid://dssdpqebhvhwv" path="res://src/scripts/patchment.gd" id="1_shtg6"]
+[ext_resource type="Texture2D" uid="uid://kpntpfyvd6gx" path="res://assets/DialogBar/Base.png" id="2_822s5"]
+[ext_resource type="FontFile" uid="uid://b1hbq7p2n7jmk" path="res://assets/Fonts/alkhemikal/Alkhemikal.ttf" id="3_822s5"]
+
+[node name="Patchment" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_shtg6")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 12.8
+anchor_top = 3.0
+anchor_right = 31.8
+anchor_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+texture = ExtResource("2_822s5")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_822s5")
+text = "Texto base."
+context_menu_enabled = true
+horizontal_alignment = 1

@@ -1091,5 +1091,5 @@ script = ExtResource("6_2lg1k")
 position = Vector2(104, 88)
 animation = &"rotateDown"
 
-[node name="GeneralInfoDialogue" parent="." instance=ExtResource("8_5lsyw")]
+[node name="bbcode_intro" parent="." instance=ExtResource("8_5lsyw")]
 position = Vector2(104, 136)

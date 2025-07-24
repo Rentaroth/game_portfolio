@@ -531,6 +531,12 @@ scale = Vector2(0.7, 0.7)
 shape = SubResource("RectangleShape2D_xvyn7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 1
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+limit_smoothed = true
 
 [connection signal="area_entered" from="PlayerDialogueArea" to="." method="_on_player_dialogue_area_area_entered"]
 [connection signal="area_exited" from="PlayerDialogueArea" to="." method="_on_player_dialogue_area_area_exited"]

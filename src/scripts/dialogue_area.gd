@@ -11,4 +11,5 @@ func get_dialogue_as_json(path: String) -> Dictionary:
 func get_dialogue(path: String) -> String:
 	var file = FileAccess.open(path, FileAccess.READ)
 	var content = file.get_as_text()
+	content = content.replace("\r\n\r\n", " ")
 	return content

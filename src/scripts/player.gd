@@ -8,6 +8,7 @@ var last_direction: Vector2
 var dialog_area: DialogArea
 var dialog: Dictionary
 var patchment: Patchment
+var busy: bool = false
 
 func _ready() -> void:
 	player_animation.play("idle_down")
@@ -15,16 +16,20 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = direction * speed
-	move_and_slide()
-	move_direction(direction)
+	if !busy:
+		move_and_slide()
+		move_direction(direction)
 
 func _on_player_dialogue_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("DialogueArea"):
 		dialog_area = area
 		if not dialog.get(area.name):
 			print("Assigned dialogue to the area, waiting for dialogue action!")
+			#dialog = {
+				#area.name: await area.get_dialogue_as_json("res://src/dialogues/" + area.name + ".json")
+			#}
 			dialog = {
-				area.name: await area.get_dialogue_as_json("res://src/dialogues/" + area.name + ".json")
+				area.name: await area.get_dialogue("res://src/dialogues/" + area.name + ".diag")
 			}
 			if Patchment_scene:
 				if !patchment:
